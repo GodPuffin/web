@@ -1,18 +1,18 @@
-@font-face {
+/* @font-face {
   font-family: 'AtkinHyp';
   font-style: normal;
   font-weight: 100 900;
   font-display: block;
-  src: url(/public/fonts/AtkinsonHyperlegible-Regular.ttf) format('truetype');
+  src: url(/fonts/AtkinsonHyperlegible-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'AtkinHyp';
   font-style: italic;
   font-weight: 100 900;
   font-display: block;
-  src: url(/public/fonts/AtkinsonHyperlegible-Italic.ttf) format('truetype');
+  src: url(/fonts/AtkinsonHyperlegible-Italic.ttf) format('truetype');
   font-named-instance: 'Italic';
-}
+} */
 
 body {
   font-family: 'AtkinHyp', system-ui, -apple-system, BlinkMacSystemFont,
