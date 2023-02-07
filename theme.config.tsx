@@ -1,10 +1,9 @@
-const YEAR = new Date().getFullYear()
+import React from "react";
 
 export default {
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
-      <time>{YEAR}</time> © Your Name.
-      <a href="/feed.xml">RSS</a>
+      Made By Marcus Lee.
       <style jsx>{`
         a {
           float: right;
@@ -17,5 +16,9 @@ export default {
         }
       `}</style>
     </small>
-  )
+  ),
+  readMore: 'Read More →',
+  // postFooter: null,
+  darkMode: true,
+  primaryHue: 296,
 }
