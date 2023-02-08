@@ -1,5 +1,3 @@
-import React from "react";
-
 export default {
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
