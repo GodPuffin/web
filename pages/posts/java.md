@@ -6,14 +6,6 @@ tag: Programming
 author: Marcus Lee
 ---
 
----
-title: Java Basics
-date: 2023-02-07
-description: Review Basic Java information.
-tag: Programming
-author: Marcus Lee
----
-
 # Java Basics
 
 > Note that this is taken from FRC team 296's workshop and only covers **extreme** basics. Designed for someone just learning.
