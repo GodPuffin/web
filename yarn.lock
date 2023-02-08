@@ -237,6 +237,20 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     "to-fast-properties" "^2.0.0"
 
+"@code-hike/lighter@^0.2.0":
+  "integrity" "sha512-930ImSV4LTFcYLyiKpJ1SPfU9dpJKwvMJNzBFqDYprkcPaZVHNEt+AqTqMkPSPdyRYnMuAAkX7opKwuPX/79zg=="
+  "resolved" "https://registry.npmjs.org/@code-hike/lighter/-/lighter-0.2.6.tgz"
+  "version" "0.2.6"
+
+"@code-hike/mdx@^0.8.0":
+  "integrity" "sha512-L0fpDHbpVtRUfNbbP5rXYxx0N63JqH+PJS03vsSShvHL+QBotx4XjrjGdEgusYd7PFqRgbcj5LIfSyB9vEK5xw=="
+  "resolved" "https://registry.npmjs.org/@code-hike/mdx/-/mdx-0.8.0.tgz"
+  "version" "0.8.0"
+  dependencies:
+    "@code-hike/lighter" "^0.2.0"
+    "node-fetch" "^2.0.0"
+    "shiki" "^0.10.1"
+
 "@jridgewell/gen-mapping@^0.1.0":
   "integrity" "sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w=="
   "resolved" "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"
@@ -1752,7 +1766,7 @@
   "resolved" "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz"
   "version" "2.2.3"
 
-"jsonc-parser@^3.2.0":
+"jsonc-parser@^3.0.0", "jsonc-parser@^3.2.0":
   "integrity" "sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w=="
   "resolved" "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.2.0.tgz"
   "version" "3.2.0"
@@ -2567,7 +2581,7 @@
     "remark-mdx-code-meta" "^1.0.0"
     "slash" "^3.0.0"
 
-"node-fetch@2.6.1":
+"node-fetch@^2.0.0", "node-fetch@2.6.1":
   "integrity" "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw=="
   "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz"
   "version" "2.6.1"
@@ -2863,7 +2877,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.3.tgz"
   "version" "0.8.3"
 
-"react@*", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@^17.0.2", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=0.14.9", "react@>=16", "react@>=16.13.1", "react@17.0.2":
+"react@*", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17 || ^18", "react@^17.0.0", "react@^17.0.2", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=0.14.9", "react@>=16", "react@>=16.13.1", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -3054,6 +3068,15 @@
   "version" "6.0.1"
   dependencies:
     "randombytes" "^2.1.0"
+
+"shiki@^0.10.1":
+  "integrity" "sha512-VsY7QJVzU51j5o1+DguUd+6vmCmZ5v/6gYu4vyYAhzjuNQU6P/vmSy4uQaOhvje031qQMiW0d2BwgMH52vqMng=="
+  "resolved" "https://registry.npmjs.org/shiki/-/shiki-0.10.1.tgz"
+  "version" "0.10.1"
+  dependencies:
+    "jsonc-parser" "^3.0.0"
+    "vscode-oniguruma" "^1.6.1"
+    "vscode-textmate" "5.2.0"
 
 "shiki@^0.14.0":
   "integrity" "sha512-fb9Fg1Yx/ElVJcTqPQIEOSfn7mSZlrT1W3CkymY08lL2Jsi+t7jPcZzKO1lCsQwlSDuyNhHvolnyA2OI4EgJNg=="
@@ -3526,7 +3549,7 @@
     "unist-util-stringify-position" "^3.0.0"
     "vfile-message" "^3.0.0"
 
-"vscode-oniguruma@^1.7.0":
+"vscode-oniguruma@^1.6.1", "vscode-oniguruma@^1.7.0":
   "integrity" "sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA=="
   "resolved" "https://registry.npmjs.org/vscode-oniguruma/-/vscode-oniguruma-1.7.0.tgz"
   "version" "1.7.0"
@@ -3535,6 +3558,11 @@
   "integrity" "sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg=="
   "resolved" "https://registry.npmjs.org/vscode-textmate/-/vscode-textmate-8.0.0.tgz"
   "version" "8.0.0"
+
+"vscode-textmate@5.2.0":
+  "integrity" "sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ=="
+  "resolved" "https://registry.npmjs.org/vscode-textmate/-/vscode-textmate-5.2.0.tgz"
+  "version" "5.2.0"
 
 "watchpack@^2.4.0":
   "integrity" "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="
