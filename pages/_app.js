@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 
-import '/styles/main.css'
+import '../styles/main.css'
 
 export default function Nextra({ Component, pageProps }) {
   return (
