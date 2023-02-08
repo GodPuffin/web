@@ -84,6 +84,14 @@ The most important building blocks of a program are _variables,_ _operators_, _c
     - Division &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **/**
     - Assignment &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **=**
     - Function Call &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **.**
+    - | Type           | Symbol |
+      | -------------- | ------ |
+      | Addition       | **+**  |
+      | Substraction   | **-**  |
+      | Multiplication | **\*** |
+      | Division       | **/**  |
+      | Assignment     | **=**  |
+      | Function Call  | **.**  |
 
 ---
 
@@ -181,15 +189,15 @@ The most important building blocks of a program are _variables,_ _operators_, _c
 
   - Which of these would execute?
 
-- Conditions we could use include \* | Type | Symbol |
-  | ------------------------ | ------ |
-  | Greater Than | **>** |
-  | Less Than | **<** |
-  | Greater Than or Equal to | **>=** |
-  | Less Than or Equal to | **<=** |
-  | Equal | **==** |
-  | Not Equal | **!=** |
-  -----
+- Conditions we could use include
+  - | Type                     | Symbol |
+    | ------------------------ | ------ |
+    | Greater Than             | **>**  |
+    | Less Than                | **<**  |
+    | Greater Than or Equal to | **>=** |
+    | Less Than or Equal to    | **<=** |
+    | Equal                    | **==** |
+    | Not Equal                | **!=** |
 
 ### Iterators
 
