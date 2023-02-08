@@ -6,8 +6,9 @@ tag: Programming
 author: Marcus Lee
 ---
 
-
 # Java Review
+
+> Some reminder stuff for someone getting into Java 
 
 ## 1. Data type
 
