@@ -1,412 +1,222 @@
 ---
-title: Java Review
+title: Java Basics
 date: 2023-02-07
 description: Review Basic Java information.
 tag: Programming
 author: Marcus Lee
 ---
 
-# Java Review
+# Java Basics
 
-## 1. Data type
+> Note that this is taken from FRC team 296's workshop.
 
-Generally, data type can be separated into two groups:
+## What is a programming language?
 
-- **Primitive data type**: pre-defined and basic data type, the size is fixed.
+- A programming language is what **allows us to talk to computers**
+- When we write and run a program, a computer will "read" our program and do what we ask it to
+  - We write programs to perform tasks like controlling a robot, calculating things, , etc.
 
-  | Category | Type                         | Size          | Comments           |
-  | -------- | ---------------------------- | ------------- | ------------------ |
-  | integral | byte, short, char, int, long | 1, 2, 2, 4, 8 | cannot be negative |
-  | floating | float, double                | 4, 8          |                    |
-  | boolean  |                              |               | true or false      |
+## What makes Java different from other languages?
 
-- **Class**: the size is not fixed.
+- There are many languages you might've heard of, like Python, C, etc.
+- Many differences, but the biggest ones are in syntax and purpose
+  - **Syntax**
+    - Syntax for a programming language is like spelling in english
+    - When writing a program, we have to "spell" our words correctly so the computer can properly understand
+  - **Purpose**
+    - Different languages are written for different reasons
+      - HTML is written to render web-pages, MATLAB for engineering analysis, etc.
+      - **Java** is an _object-oriented_ language, like Python or C++
+        - Java is used for a wide variety of purposes
+        - E.g. Robots, Android Apps, and even **MINECRAFT**
 
-## 2. Method
+## The Building Blocks of Java
 
-### 2.1 Overload method
+The most important building blocks of a program are _variables,_ _operators_, _classes_, and _functions_.
 
-**Overload** methods means more than one methods in the same class have the same method name, but different parameter lists.
+### Variables
 
-```java
-// Example of overload methods
-public static double max(double num1, double num2)
-public static int max(int num1, int num2)
-public static double max(double num1, double num2, double num3)
-```
+- A variable (like in math) is used to represent a piece of data
 
-### 2.2 Pre-defined methods in classes
+  - Just as an equation uses a variable _x_ to symbolize a number, a program **uses a variable to symbolize a block of the computer's memory**
+  - We declare a variable by writing its **type**, its **name**, and assigning its **value**. E.g.
 
-Some pre-defined classes:
+    ```java
+    		int myInteger = 5;
+    ```
 
-#### 2.2.1 Math class
+    - Here, a variable of type **integer** (int) named _myInteger_ is declared and **set equal to 5**
 
-| Method/Value           | Usage                                   | Example                                                       |
-| ---------------------- | --------------------------------------- | ------------------------------------------------------------- |
-| `Math.min(num1, num2)` | find the smaller number of two          | `Math.min(1, 2)` returns 1                                    |
-| `Math.max(num1, num2)` | find the larger number of two           | `Math.max(1, 2)` returns 2                                    |
-| `Math.sqrt(num)`       | calculate the square root of a number   | `Math.sqrt(4)` returns 2.0                                    |
-| `Math.pow(num, toPwr)` | calculate the power of a number         | `Math.pow(3, 2)` returns 9                                    |
-| `Math.round(num)`      | round a number up or down               | `Math.round(3.14)` returns 3<br />`Math.round(3.8)` returns 4 |
-| `Math.ceil(num)`       | round a number up                       | `Math.ceil(3.14)` returns 4                                   |
-| `Math.floor(num)`      | round a number down                     | `Math.floor(3.8)` returns 3                                   |
-| `Math.random()`        | generate a random number between [0, 1) |                                                               |
-| `Math.PI`              | value of π                              |                                                               |
+    ```java
+    		String myString = "Hello World!";
+    ```
 
-#### 2.2.2 String class
+    - Here, a variable of type **String** named _myString_ is declared and **set equal to "Hello World"**
 
-The index of a string starts at 0.
+  - So **what does the computer do** with this?
+    - The computer takes the values we assign, and stores them in the memory
+    - Once in the memory, we can use these values to calculate things and much more
+  - **Most Common Variable Types:**
+    ```java
+    int
+    float
+    double
+    String
+    ```
 
-| Method/Value/Operator                                            | Usage                                                                                                      | Example                                                                           |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `str.length()`                                                   | find the length of a string                                                                                | `"hello".length()` returns 5                                                      |
-| `str.charAt(idx)`                                                | find the character with a specific index in a string                                                       | `"hello".charAt(1)` returns 'e'                                                   |
-| `str.indexOf(chara)`                                             | find the index of a character in a string (first time appears), returns -1 if the character does not exist | `"hello".indexOf('l')` returns 2                                                  |
-| `str.lastIndexOf(chara)`                                         | find the index of a character in a string (last time appears)                                              | `"hello".lastIndexOf('l')` returns 3                                              |
-| `str.contains(str2)`                                             | check if a string contains a specific substring                                                            | `"hello".contains("el")` returns true                                             |
-| `str.substring(startIdx, endIdx)`<br />`str.substring(startIdx)` | extract a substring from a string, with range [startIdx, endIdx), or [startIdx, end of the string]         | `"hello".substring(2, 4)` returns "ll"<br />`"hello".substring(1)` returns "ello" |
-| `str.toUpperCase()`                                              | bring a string to uppercase                                                                                | `"hello!".toUpperCase()` returns "HELLO!"                                         |
-| `str.toLowerCase()`                                              | bring a string to lowercase                                                                                | `"HELLO!".toLowerCase()` returns "hello!"                                         |
-| `str.equals(str2)`                                               | compare two strings to check if they are the same                                                          | `"hello".equals("hello")` returns true                                            |
-| `Stirng.format()`                                                | generate a string. See point 4.1 for further info                                                          | `String.format("%s: %d", "Age", 18)` returns "Age: 18"                            |
-| `str1 + str2`                                                    | join two strings as one                                                                                    | `"hi " + "there"` returns "hi there"                                              |
+---
 
-#### 2.2.3 Random
+### Operators
 
-```java
-// Example of using Random class
-Random rand = new Random();
-int num = rand.nextInt(3);    		// {0, 1, 2}
-int num2 = rand.nextInt(6) + 1;		// dice {1, 2, 3, 4, 5, 6}
-int num3 = rand.nextInt(5) + 3;		// {3, 4, 5, 6, 7}
-int num4 = rand.nextInt(5) * 2 + 3;	// {3, 5, 7, 9, 11}
+- An **operator** (again, like in math) is used to modify a stored value
+  - E.g. consider two **integers** stored in memory, that we want to add. We would first declare the integers, and then use the **+ operator** to perform addition
+    ```java
+    		int x = 5;
+    		int y = 10;
+    		int sum = 0;
+    		sum = x + y;
+    ```
+    - The addition of x and y is stored in the variable _sum_
+  - Java has many operators. The most important ones we will explore are:
+    - Addition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;**+**
+    - Subtraction &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **-**
+    - Multiplication &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; **\***
+    - Division &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **/**
+    - Assignment &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **=**
+    - Function Call &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **.**
 
-// General Pattern
-// rand.nextInt(numOfChoice) * leapBetweenNums + startNum
-```
+---
 
-#### 2.2.4 Scanner
+### Classes
 
-```java
-// Example of using Scanner class
-Scanner console = new Scanner(System.in);
-int num = console.nextInt();
-double num2 = console.nextDouble();
-String str = console.next();			// input stops at space or enter
-String str2 = console.nextLine();		// input stops at enter only
-```
+- A Java class is a sort of _container_ for your code
+  - When a class is declared in java, memory is **allocated** for this class and whatever may be inside it
+- **Everything in Java is a class!** Literally everything
+  - This isn't really the norm though; Most languages offer classes but don't require them
+- E.g. consider your classic "Hello World" program
+  ```java
+  	class HelloWorld
+  	{
+  	    public static void main(String[] args)
+  	    {
+  	        System.out.println("Hello World!");
+  	    }
+  	}
+  ```
+  - Here you can see that the _main_ function of the program is contained within a class, called _HelloWorld_
+    - This file would be saved as `HelloWorld.java`
+- **Access Modifiers -- Public & Private**
+  - _Variables_ and _functions_ either declared as:
+    - **Public**: All functions from any file can access the data/function
+    - **Private**: Only functions within the surrounding class can access them
 
-#### 2.2.5 Character:
+---
 
-| Method/Value                   | Usage                                       | Example                                    |
-| ------------------------------ | ------------------------------------------- | ------------------------------------------ |
-| `Character.isUpperCase(chara)` | check if a character is an uppercase letter | `Character.isUpperCase('a')` returns false |
-| `Character.isLowerCase(chara)` | check if a character is a lowercase letter  | `Character.isLowerCase('a')` returns true  |
-| `Character.isLetter(chara)`    | check if a character is a letter            | `Character.isLetter('a')` returns true     |
-| `Character.isDigit(chara)`     | check if a character is a digit             | `Character.isDigit('9')` returns true      |
-| `Character.toUpperCase(chara)` | convert a character to uppercase            | `Character.toUpperCase('a')` returns 'A'   |
-| `Character.toLowerCase(chara)` | convert a character to lowercase            | `Character.toLowerCase('A')` returns 'a'   |
+### Functions
 
-```java
-// Example of using Character class
-/**
- * Checks if a password is valid or not, a valid password should contain uppercase letter, lowercase letter and digit
- * @param password the input password
- * @return if the password is valid or not
- */
-public static boolean isPasswordValid(String password) {
-    boolean upper = false;
-    boolean lower = false;
-    boolean digit = false;
-
-    for (int i = 0; i < password.length(); i++) {
-        char c = password.charAt(i);
-        if (Character.isUpperCase(c))
-            upper = true;
-        else if (Character.isLowerCase(c))
-            lower = true;
-        else if (Character.isDigit(c))
-            digit = true;
-    }
-
-    return upper && lower && digit;
-}
-```
-
-## 3. Control Structures
-
-There are three control structures:
-
-### 3.1 Sequence
-
-Step by step, line by line, boring
-
-### 3.2 Selection
-
-Give programmers the ability to skip part of its code
-
-- **if...(else if)...(else)**: more powerful, we can use all boolean operators
+- Functions are **called** to perform some sort of routine
+  - This routine could be adding two numbers, printing a statement, whatever you'd like!
+- We create functions so that we don't have to rewrite code
+- Functions consist of three main parts:
+  - A return type, arguments, and a body
+    - The **return type** tells us what type of variable the function will give us (maybe an integer or a string)
+    - The **arguments** are what we can _pass_ to a function (maybe we pass it one integer, maybe two)
+    - The **body** defines what we do with the arguments, and what we return
+- E.g. take a look at the following two functions
+  ```java
+  	public static int add(int x, int y)
+  	{
+  		int sum = x + y;
+  		return sum;
+  	}
+  ```
+  - Here the **return type** is integer, the **arguments** are the two integers _x_ and _y_, and the **body** of the function adds the two arguments.
+- A function could also not return anything. In that case, we say the return type is `void`
 
   ```java
-  // Example of using if...else
-  if (age >= 18)
-      System.out.println("You can drive");
+  	private static void print()
+  	{
+  		System.out.println("Hello World!");
+  	}
   ```
 
-- Conditional operator **(condition) ? a : b** : is usually used to replace simple if...else statement.
+  - Note that this function has no return type, nor does it take any arguments! It just prints _Hello World!_ to the terminal.
 
+- Finally, to _invoke_ or _call_ these functions, we would do the following
   ```java
-  // Example 1 of using conditional operator
-  if (num1 >= num2)
-      return num1;
-  else
-      return num2;
-
-  // should be written as:
-  return (num1 >= num2) ? num1 : num2;
-
-  // ---------------------------------------
-
-  // Example 2 of using conditional operator
-  if (num1 >= num2)
-      max = num1;
-  else
-      max = num2;
-
-  // should be written as:
-  max = (num1 >= num2) ? num1 : num2;
+  	int sum = add(5,10);	// here we assign the return value to the variable sum
+  	print();		// here we invoke a void function with no arguments
   ```
 
-- **switch...case (break)**: we can only use the **==** to compare two values
+## Conditional Statement and Iterators
+
+- Conditional statment and iterators are tools we use in Java and other languages to control the flow of a program
+
+### Conditional Statement
+
+- A **conditional statement** checks is a conditions is met, and acts based on if it is met or not
+  - The condition could be comparing two values, checking if two values are equal, etc.
+- The `if` statement
+
+  - An _if statement_ allows a program to enter a **body** of code if the condition presented is met
+  - E.g. suppose we have the following situation
 
   ```java
-  // Bad example of using switch...case, should use if...else instead
-  switch (age) {
-      case 1:
-      case 2:
-      case 3:
-          ..
-      case 17:
-          System.out.println("You cannot drive");
-          break;
-      case 18:
-      case 19:
-          ...
-          System.out.println("You can drive");
-  }
+  	int x = 5;
+  	int y = 10;
 
-  // Good example of using switch...case
-  switch (oper) {
-      case 1:
-          withdraw();
-          break;
-      case 2:
-          deposit();
-          break;
-      case 3:
-          displayBalance();
-          break;
-  }
+  	if(x > y)
+  	{
+  		// do stuff
+  	}
+  	if(x < y)
+  	{
+  		// do more stuff
+  	}
+  	if(x == y)
+  	{
+  		// do even MORE stuff
+  	}
   ```
 
-### 3.3 Loop
+  - Which of these would execute?
 
-Give programmers the ability to go back to the previous code
+- Conditions we could use include \* | Type | Symbol |
+  | ------------------------ | ------ |
+  | Greater Than | **>** |
+  | Less Than | **<** |
+  | Greater Than or Equal to | **>=** |
+  | Less Than or Equal to | **<=** |
+  | Equal | **==** |
+  | Not Equal | **!=** |
+  -----
 
-1. **for**: most frequently used, the initialization of the counter, the condition, and the counter updating are written in one place. If we know how many times the loop will iterate, then use for loop.
+### Iterators
 
-   ```java
-   // Example of using for loop
-   /**
-    * Prints characters in a string
-    * @param str the input string
-    */
-   public static void printCharacters(String str) {
-       for (int i = 0; i < str.length(); i++)
-           System.out.print(str.charAt(i));
-   }
-
-   // for loop with special increament
-   for (int i = 0; i < str.length(); i += 2)
-
-   // for loop with no initialization
-   for (; num < str.length(); i += 2)
-
-   // for loop with two initialization
-   for (int i = 0; num < str.length(); i += 2)
-   ```
-
-2. **while**: second. If we DO NOT know how many times the loop will iterate, then use while loop.
-
-   ```java
-   // Example of using while loop
-   /**
-    * Prints characters in a string
-    * @param str the input string
-    */
-   public static void printCharacters(String str) {
-       int i = 0;
-       while (i < str.length())
-           System.out.print(str.charAt(i++));
-   }
-   ```
-
-3. **do...while**: third. If we DO NOT know how many times the loop will iterate, and also, the value the condition needs is initialized in the body of the loop, then use do...while loop.
-
-   ```java
-   // Example of using do...while loop
-   String pin = null;				// null is not "", you can use "".equals(), but not null.equals()
-   do {
-       System.out.println("Please input your pin:");
-       pin = console.next();
-   } while (!pin.equals(realPin));
-   ```
-
-## 4. OOP (Object-oriented Programming)
-
-### 4.1 what is OOP
-
-OOP is about 2 things:
-
-- Class: abstract
-
-  - data members: the information you care about
-  - methods: to define the behaviors
-
-    - constructor
-
-      - **default constructor**: with no param
-
-      ```Java
-      // Example of default constructor
-      public Clock() {
-          this.hr = 0;
-          this.mi = 0;
-          this.se = 0;
-      }
-      ```
-
-      - **constructor with data members**: takes param
-
-      ```java
-      // Example of constructor with data members
-      public Clock(int hr, int mi, int se) {
-          this.hr = hr;
-          this.mi = mi;
-          this.se = se;
-      }
-      ```
-
-      - **copy constructor**: takes one parameter with the same data type as the class
-
-      ```Java
-      // Example of copy constructor
-      public Clock(Clock clock) {
-          this.hr = clock.hr;
-          this.mi = clock.mi;
-          this.se = clock.se;
-      }
-      ```
-
-    - **toString()**: to generate a string to represent an object of that class
-
-      ```java
-      // Example of toString()
-      @Override
-      public String toString() {
-          return String.format("%02d:%02d:%02d", hr, mi, se);
-          // Example of output would be: 08:16:24
-          // %d: integer
-          // %f: floating
-          // %c: char
-          // %s: string
-          // %%: %
-          // %5d: the width of the place holder   123 -> "  123"
-          // %05d: zero-padding  123 -> "00123"
-          // %.2f: the length of the decimal part: 3.3333333 -> 3.33
-          // %5.2f: 3.3333333 -> " 3.33"
-          // %-5.2f: 3.3333333 -> "3.33 "
-      }
-      ```
-
-    - **equals()**: to compare two objects (_overload_ version), we will learn the (_override_ version) of this method this semester
-
-    - **getter and setter**: to read or modify the data members of the class
-
-- Object: real
-
-### 4.2 Access modifier
-
-Access modifiers are used to define where the data member / method can be used. There are 4 access modifiers in total, and we have learned 2 of them:
-
-| Access modifier | Accessibility                     |
-| --------------- | --------------------------------- |
-| private         | only the current class can use it |
-| public          | every class can use it            |
-| protected       |                                   |
-| default         |                                   |
-
-### 4.3 Shallow copy VS Deep copy
-
-For each object, java will allocate two pieces of memory to it, one to store the real values based on the data member, while the other one to store the address of the first piece of memory.
-
-- **Shallow copy**: a copy of the address. Shallow copy does not create a new object, it only creates another name for an existing object.
-
-- **Deep copy**: a copy of the real values of one object. Deep copy really creates another object.
-
-### 4.4 Static VS Non-static
-
-- **static**: belongs to the class, call through the class when use it. A static method can ONLY visit static values and methods
-
+- An **iterator** makes a body of code loop until a _condition_ is met. There are two types:
+- The `for` loop
+  - A _for loop_ makes a body of code execute as many times as we want it to
+    - We could make a body of code loop as little as 1 time or as many as 10000000 times
+  - E.g., if we wanted to make a loop that runs 100 times and adds 1 to a variable, we could do
   ```java
-  // Example of calling a static method
-  public static void main() {
-      Clock.staticMethod();
-  }
+  	int x = 0;
+  	for(int i = 0; i<100; i++)
+  	{
+  		x = x+1;
+  	}
   ```
-
-- **non-static**: belongs to the object, when you use it, you have to call it through the object. A non-static method can visit non-static and static values and methods
-
+  - What does the stuff in the parenthesis mean?
+    - `int i = 0;` declares a new variable _i_
+    - `i<100` means "Keep looping while `i` is less than 100"
+    - `i++` means add 1 to _i_ after _every loop_
+- The `while` loop
+  - A _while loop_ loops forever until a condition is met
+    - It's kind of like a for loop, except instead of stopping when a number is reached, the while loop stops when a _condition is reached_.
+  - E.g. if we wanted a while loop to run 100 times and add 1 to a variable, we could say
   ```java
-  // Example of calling a non-static method
-  public static void main() {
-      Clock c1 = new Clock();
-    c1.nonStaticMethod();
-  }
-  ```
-
-  ```java
-  // Example of static and non-static variables and methods
-  /**
-   * A class of clock
-   * @author Yi Wang
-   */
-  public class Clock {
-      private int hr;     // non-static
-      private int mi;
-      private int se;
-      private static String brand; // static
-
-      /*
-       * A non-static method can visit non-static and static values and methods
-       * non-static method should be called through an object
-       * e.g.: c1.increaseHr()
-       */
-      public void increaseHr() {
-          hr++;
-          if (hr == 24)
-              hr = 0;
-          System.out.println(brand);
-      }
-
-      /*
-       * A static method can ONLY visit static values and methods
-       * static method should be called through the class
-       * e.g.: Clock.printBrand()
-       * Math.max(1, 2)
-      */
-      public void printBrand() {
-          System.out.println(brand);
-      }
-  }
+  	int x = 0;
+  	while(x < 100)
+  	{
+  		x = x+1;
+  	}
   ```
