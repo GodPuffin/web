@@ -15,9 +15,9 @@ export default function Nextra({ Component, pageProps }) {
         />
         <link
           rel="preload"
-          href="/fonts/Inter-roman.latin.var.woff2"
+          href="fonts/AtkinsonHyperlegible-Regular.ttf"
           as="font"
-          type="font/woff2"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
       </Head>

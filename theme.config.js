@@ -1,10 +1,10 @@
-const YEAR = new Date().getFullYear()
-
 export default {
+  readMore: 'Read More →',
+  darkMode: true,
+  primaryHue: 296,
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
-      <time>{YEAR}</time> © Your Name.
-      <a href="/feed.xml">RSS</a>
+      Made By Marcus Lee.
       <style jsx>{`
         a {
           float: right;
@@ -17,5 +17,5 @@ export default {
         }
       `}</style>
     </small>
-  )
+  ),
 }
