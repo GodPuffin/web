@@ -200,7 +200,7 @@ if(x == y)
 	| Less Than                | **\<**  |
 	| Greater Than or Equal to | **>=** |
 	| Less Than or Equal to    | **\<=** |
-	| Equal                    | ==     |
+	| Equal                    | **==** |
 	| Not Equal                | **!=** |
 
 ### Iterators
