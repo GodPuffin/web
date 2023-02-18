@@ -2,6 +2,7 @@ export default {
   readMore: 'Read More →',
   darkMode: true,
   primaryHue: 296,
+  codeHighlight: true,
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
       Made By Marcus Lee.
