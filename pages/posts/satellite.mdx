@@ -38,12 +38,14 @@ Here are the 2 ships and their respective effects:
     className="next-image"
     />
 
+The stars are also made using a particle effect.
+
 ## ECS (Entity Component System)
-To facilitate production, I implemented an [Entity Component System](https://www.gamedev.net/articles/programming/general-and-gameplay-programming/understanding-component-entity-systems-r3013/), allowing to have individual enities, to which I attach “components” such as health, position, or even a particle emitter. 
+To facilitate production, I implemented an [Entity Component System](https://www.gamedev.net/articles/programming/general-and-gameplay-programming/understanding-component-entity-systems-r3013/). This allows to have many individual enities, to which I attach “components” such as health, position, or even a particle emitter. 
 It is a bit of a homebrew implementation, as I simply took the concept and created it in the way I imagined. 
 
 ## Physics
-This is where the project really slowed down. basic physics are incomperated into the game, but the issues arrised from collision. Finding and detecting collisions was implemented, along with basic linear collision, allowing ships to bounce off eachother, and eventually astroids or enemies. The problem was rotation. With my current knowledge of mechanics and math, a proper implemtation of angular collision would have been extremely difficult. I wanted a collision like the following to result in the wing clipping the object in the way and spinning out the ship.
+This is where the project really slowed down. basic physics are incomperated into the game, but the issues arrised from collision. Finding and detecting collisions was implemented, along with basic linear collision, allowing ships to bounce off eachother, and eventually astroids or enemies. The problem was rotation. With my current knowledge of mechanics and math, a proper implemtation of angular collision would have been rather difficult and complicated. I wanted a collision like the following to result in the wing clipping the object in the way and spinning out the ship.
 <Image
     src="/images/satellite/ship-collision.png"
     alt="The ship should spin out"
@@ -56,4 +58,4 @@ This is where the project really slowed down. basic physics are incomperated int
 ## Future (Maybe)
 If I get around to it, I’d like to implement the missing physics and flesh it out in term of “being a game”.  Currently it sits more as a demo with no objective or gameplay.
 
-[Satellite Github](https://github.com/GodPuffin/Satellite)
+[Satellite Github Repository](https://github.com/GodPuffin/Satellite)
