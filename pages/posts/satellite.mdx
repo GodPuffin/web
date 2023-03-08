@@ -1,0 +1,59 @@
+---
+title:  Satellite Game
+date: 2023-03-08
+description: A C# Project.
+tag: Programming, Projects
+author: Marcus Lee
+---
+import Image from 'next/image'
+
+# Satellite
+As an evolution from an old Scratch game I made, [Shooty](https://scratch.mit.edu/projects/335656151/), I put together this simple 2D Astroid-like game. 
+
+## Design
+This is again really just a learner project, allowing me to experiment with new languages, design patterns, algorithms etc… The goal of Satellite was to allow me to learn some C# and game design. I wanted to incorperate a particle system, entity component system and physics engine.
+
+I built Satellite with a XNA framework called [Monogame](https://www.monogame.net/).
+
+## Particles
+Satellite features a particles system, generating the stars and the thrust effect behind the ships. The particle emitter is able to keep track of the age of each particle, allowing to change size, rotation, opacicity and anything else about the particles as they age. 
+
+Here are the 2 ships and their respective effects:
+
+<Image
+    src="/images/satellite/ship1-effect.gif"
+    alt="Ship 1"
+    width={600}
+    height={338}
+    priority
+    className="next-image"
+    />
+<br/>
+<Image
+    src="/images/satellite/ship2-effect.gif"
+    alt="Ship 2"
+    width={600}
+    height={338}
+    priority
+    className="next-image"
+    />
+
+## ECS (Entity Component System)
+To facilitate production, I implemented an [Entity Component System](https://www.gamedev.net/articles/programming/general-and-gameplay-programming/understanding-component-entity-systems-r3013/), allowing to have individual enities, to which I attach “components” such as health, position, or even a particle emitter. 
+It is a bit of a homebrew implementation, as I simply took the concept and created it in the way I imagined. 
+
+## Physics
+This is where the project really slowed down. basic physics are incomperated into the game, but the issues arrised from collision. Finding and detecting collisions was implemented, along with basic linear collision, allowing ships to bounce off eachother, and eventually astroids or enemies. The problem was rotation. With my current knowledge of mechanics and math, a proper implemtation of angular collision would have been extremely difficult. I wanted a collision like the following to result in the wing clipping the object in the way and spinning out the ship.
+<Image
+    src="/images/satellite/ship-collision.png"
+    alt="The ship should spin out"
+    width={642}
+    height={452}
+    priority
+    className="next-image"
+    />
+
+## Future (Maybe)
+If I get around to it, I’d like to implement the missing physics and flesh it out in term of “being a game”.  Currently it sits more as a demo with no objective or gameplay.
+
+[Satellite Github](https://github.com/GodPuffin/Satellite)
