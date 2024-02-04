@@ -83,7 +83,7 @@ sum = x + y;
 	-  | Type           | Symbol |
 	| -------------- | ------ |
 	| Addition       | **+**  |
-	| Substraction   | **-**  |
+	| Subtraction   | **-**  |
 	| Multiplication | **\*** |
 	| Division       | **/**  |
 	| Assignment     | **=**  |
@@ -154,7 +154,7 @@ print();    // here we invoke a void function with no arguments
 ```
 
 ## Conditional Statement and Iterators
-- Conditional statment and iterators are tools we use in Java and other languages to control the flow of a program
+- Conditional statement and iterators are tools we use in Java and other languages to control the flow of a program
 
 ### Conditional Statement
 - A **conditional statement** checks is a conditions is met, and acts based on if it is met or not
