@@ -80,15 +80,12 @@ sum = x + y;
 
 -  The addition of x and y is stored in the variable _sum_
 - Java has many operators. The most important ones we will explore are:
-	-  | Type           | Symbol |
-	| -------------- | ------ |
-	| Addition       | **+**  |
-	| Subtraction   | **-**  |
-	| Multiplication | **\*** |
-	| Division       | **/**  |
-	| Assignment     | **=**  |
-	| Function Call  | **.**  |
-
+	- Addition **+**
+	- Subtraction **-**
+	- Multiplication **\***
+	- Division **/**
+	- Assignment **=**
+	- Function Call **.**
 ---
 
 ### Classes
