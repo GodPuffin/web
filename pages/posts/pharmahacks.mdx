@@ -1,0 +1,99 @@
+---
+title:  Pharmahacks 2024
+date: 2024-03-19
+description: Participation at a life science hackathon, decoding neural data.
+tag: Programming, Hackathon, Neuroscience
+author: Marcus Lee
+---
+import Image from 'next/image'
+
+# Pharmahacks 2024
+
+I recently participated at the Pharmahacks 2024 hackathon. I was part of a team of 5 that tackled the neural decoding challenge. You can read about it in our [github repository](https://github.com/GodPuffin/Pharmahacks2024)'s readme. I wanted to use this post to document my experience and the code I wrote.
+
+## Problem Approach
+
+### Analysis 
+
+Our first mission was to understand the data. after thorough research & analysis of the neural paper & use tutorial of the data, we narrowed down our focus to these specific factors:
+- **The RSC:** We chose to isolate our focus on the RSC due to it's functions encompassing navigation and spacial memory. 
+    - Members of our team read through the paper and found that when the RSC is inhibited it greatly affects the mouse's spatial awareness.
+- **The L2/3 layers:** Our data presented us with the L2/3 layers & the L5 in separate files. We decided on working with the L2/3 due to its relations in processing sensory information. 
+- **Multi-plane images:** Having been given the option between Single-Plane & Multi-Plane imaging, we chose to go with Multi-Plane so that we had more comprehensive data to work with. 
+
+
+### Data processing
+
+The data of a single session is stored in an [NWB file](https://www.nwb.org/) which is composed of a whole bunch of information, among which is 4 deconvoluted planes, each of which are asynchronized from one another, meaning there are many NaN (missing) values at certain timestamps. Below was our process to resolve these issues;
+
+- **asynchronized data:** 
+    - Join all **4 deconvoluted planes** together. 
+    - Format the columns to accurately reference to the Timestamp data. 
+    - Since the imaging planes have the same sampling rate, we can chunk the data into the same time intervals.
+
+- **NaN values:** The positions was sampled at a different rate, so even after chunking the neural data, there were still many NaN values. 
+    - Dropped all NaNs and saved in a new set (lower in resolution). 
+    - Utilized an **IterativeImputer** model to impute what the missing data should be according to it's surrounding data values. 
+        - **Initial Imputation:** The iterative imputer starts by filling in the missing values with an initial estimate, such as the mean or a constant value
+        - **Iterative Modeling and Imputation:** It then iteratively models each feature with missing values using the available data (including the initially imputed values), and uses these models to predict better estimates for the missing values. The imputed values are updated with these new predictions.
+        - **Convergence:** This process of modeling and imputing continues until a stopping criterion is met, such as a maximum number of iterations or a small enough change in the imputed values between iterations.
+
+    ```python
+    from sklearn.experimental import enable_iterative_imputer
+    from sklearn.impute import IterativeImputer
+
+    # Initialize the imputer
+    imputer = IterativeImputer(max_iter=10, random_state=0)
+
+    # Since IterativeImputer works only with num arrays, we need to convert our DataFrame
+    numerical_data = final_df.to_numpy()
+
+    # Run the imputer on the data to clear NaN values
+    imputed_data = imputer.fit_transform(numerical_data)
+
+    # Convert the imputed data back into a DataFrame
+    final_df_imputed = pd.DataFrame(imputed_data, columns=final_df.columns, index=final_df.index)
+
+    final_df_imputed.head()
+    ```
+
+### Machine Learning Model
+
+Once it came down to choosing a model, we had to research different categories of models. Through our prior analysis, we knew we wanted to use something of the classification/regression sort which led us to using a **RandomForestRegressor**. 
+    - The RandomForestRegressor is a powerful machine learning model that is well-suited for regression tasks. It works by constructing multiple decision trees during training and outputs the average prediction of the individual trees. This ensemble method helps in reducing overfitting and improving the accuracy of the predictions. In the context of neural decoding challenge, RandomForestRegressor can effectively learn the complex relationships between the neural data and the target variable, providing accurate predictions for decoding neural activity patterns.
+    - The model is trained on the first 80% of a session and tested on the last 20%
+
+## Results
+
+Our final models had the following MSE:
+    - MSE for model with dropped NaNs: **0.04715412595503235**
+    - MSE for model with imputed data: **0.04621181362248771**
+
+Here are some plots showing off the actual mouse positions vs predicted by our models:
+<Image
+    src="/images/pharmahacks/lat_pos.png"
+    alt="Predicted lateral positions"
+    width={1072}
+    height={856}
+    priority
+    className="next-image"
+    />
+<Image
+    src="/images/pharmahacks/fwd_pos.png"
+    alt="Predicted forward positions"
+    width={1072}
+    height={856}
+    priority
+    className="next-image"
+    />
+
+All of these results are from a single 400 trial session.
+
+## Experience
+
+Overall this was a very exciting experience. I learned a lot about neural data and how to process it. I also learned some basic understanding of Neuroscience from my team. 
+Additionally, I also made strides in my understanding of data science, data cleaning and machine learning. It was super fun and I would reccomend it to anyone who is interested in neuroscience or data science.
+
+---
+[Pharmahacks Github Repository](https://github.com/GodPuffin/Pharmahacks2024)
+
