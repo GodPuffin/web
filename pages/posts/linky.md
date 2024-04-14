@@ -9,7 +9,6 @@ author: Marcus Lee
 # Linky AI
 
 At [MariHacks 2024](https://marihacks-2024.devpost.com/), my team and I embarked on an ambitious project to transform how we interact with online information. Our creation, Linky, emerged as a powerful tool to distill essential data from web pages. Here’s a detailed look at our experience and the technology behind Linky.
-Team Effort
 
 ## The Team
 
