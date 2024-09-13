@@ -2,7 +2,7 @@
 title:  Txt2Cad
 date: 2024-09-12
 description: Create 3D models from prompt
-tag: Programming, Projects, Hackathon
+tag: Programming, Hackathon
 author: Marcus Lee
 ---
 
