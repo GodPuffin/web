@@ -2,14 +2,20 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next",
+    "build": "node ./scripts/gen-rss.js && next build",
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
+    "matter-js": "^0.19.0",
     "next": "^14.1.0",
+    "nextra": "^2.13.3",
+    "nextra-theme-blog": "^2.13.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rss": "^1.2.2"
   },
   "prettier": {
     "arrowParens": "always",
