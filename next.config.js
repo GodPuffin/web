@@ -1,7 +1,13 @@
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-blog',
-  themeConfig: './theme.config.jsx',
-})
- 
-module.exports = withNextra()
- 
+const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        destination: 'https://marcus-lee.net/:path*',
+        permanent: true,
+      },
+    ]
+  },
+}
+
+module.exports = nextConfig
