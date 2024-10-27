@@ -3,7 +3,7 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        destination: 'https://marcus-lee.net/:path*',
+        destination: 'https://marcus-lee.net/',
         permanent: true,
       },
     ]
