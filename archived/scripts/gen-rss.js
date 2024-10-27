@@ -10,14 +10,14 @@ async function generate() {
     feed_url: 'https://web-godpuffin.vercel.app/feed.xml'
   })
 
-  const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'archived', 'posts'))
+  const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'posts'))
   const allPosts = []
   await Promise.all(
     posts.map(async (name) => {
       if (name.startsWith('index.')) return
 
       const content = await fs.readFile(
-        path.join(__dirname, '..', 'pages', 'archived', 'posts', name)
+        path.join(__dirname, '..', 'pages', 'posts', name)
       )
       const frontmatter = matter(content)
 
